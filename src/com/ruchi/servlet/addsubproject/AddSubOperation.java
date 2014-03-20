@@ -2,11 +2,11 @@ package com.ruchi.servlet.addsubproject;
 
 public class AddSubOperation {
 
-    public int add(int a, int b) {
+    public int add(final int a, final int b) {
         return a + b;
     }
 
-    public int sub(int a, int b) {
+    public int sub(final int a, final int b) {
         return a - b;
     }
 

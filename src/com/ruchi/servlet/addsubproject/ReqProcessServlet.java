@@ -1,4 +1,4 @@
-package com.src.ruchi.servlet.addsubproject;
+package com.ruchi.servlet.addsubproject;
 
 import java.io.IOException;
 
@@ -11,35 +11,35 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/ReqProcessServlet")
 public class ReqProcessServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	protected void service(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+    protected void service(final HttpServletRequest request, final HttpServletResponse response)
+            throws ServletException, IOException {
 
-		// readind form parameters value
-		String num1 = request.getParameter("fno");
-		String num2 = request.getParameter("sno");
-		String button = request.getParameter("reqtype");
+        // readind form parameters value
+        final String num1 = request.getParameter("fno");
+        final String num2 = request.getParameter("sno");
+        final String button = request.getParameter("reqtype");
 
-		int fno = Integer.parseInt(num1);
-		int sno = Integer.parseInt(num2);
+        final int fno = Integer.parseInt(num1);
+        final int sno = Integer.parseInt(num2);
 
-		AddSubOperation ao = new AddSubOperation();
-		int res;
+        final AddSubOperation ao = new AddSubOperation();
+        int res;
 
-		// Checking reqtype to call appropriate business logic from POJO
+        // Checking reqtype to call appropriate business logic from POJO
 
-		if (button.equals("Add")) {
-			res = ao.add(fno, sno);
-		} else {
-			res = ao.sub(fno, sno);
-		}
+        if (button.equals("Add")) {
+            res = ao.add(fno, sno);
+        } else {
+            res = ao.sub(fno, sno);
+        }
 
-		// storing res in request scope
-		request.setAttribute("result", res);
+        // storing res in request scope
+        request.setAttribute("result", res);
 
-		// Forwarding request to RespPrepServlet for responce generation
-		RequestDispatcher rd = request.getRequestDispatcher("/AddSub.html");
-		rd.forward(request, response);
-	}
+        // Forwarding request to RespPrepServlet for responce generation
+        final RequestDispatcher rd = request.getRequestDispatcher("/AddSub.html");
+        rd.forward(request, response);
+    }
 }
