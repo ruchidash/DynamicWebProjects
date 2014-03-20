@@ -36,8 +36,6 @@ public class RespPrepServlet extends HttpServlet {
             msg = "substracting ";
         }
 
-        // Include Addsub.html code in the response object
-
         out.print("<br>");
         out.print("<hr>");
         out.print("After " + msg + num1 + " and " + num2);
