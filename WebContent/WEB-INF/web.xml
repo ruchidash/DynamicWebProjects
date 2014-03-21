@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>DynamicProjects</display-name>
+	<welcome-file-list>
+		<welcome-file>AddSub.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+	<context-param>
+		<param-name>movieName</param-name>
+		<param-value>3Idiots</param-value>
+	</context-param>
+	<context-param>
+		<param-name>directorName</param-name>
+		<param-value>SLV</param-value>
+	</context-param>
+	<context-param>
+		<param-name>producerName</param-name>
+		<param-value>Gopi</param-value>
+	</context-param>
+</web-app>
