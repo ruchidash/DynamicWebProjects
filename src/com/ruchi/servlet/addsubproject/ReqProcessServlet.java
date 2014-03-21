@@ -16,7 +16,7 @@ public class ReqProcessServlet extends HttpServlet {
     protected void service(final HttpServletRequest request, final HttpServletResponse response)
             throws ServletException, IOException {
 
-        // readind form parameters value
+        // Reading form parameters value
         final String num1 = request.getParameter("fno");
         final String num2 = request.getParameter("sno");
         final String button = request.getParameter("reqtype");
@@ -27,7 +27,7 @@ public class ReqProcessServlet extends HttpServlet {
         final AddSubOperation ao = new AddSubOperation();
         int res;
 
-        // Checking reqtype to call appropriate business logic from POJO
+        // Checking request type to call appropriate business logic from POJO
 
         if (button.equals("Add")) {
             res = ao.add(fno, sno);

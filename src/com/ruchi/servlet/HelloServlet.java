@@ -12,15 +12,14 @@ import javax.servlet.annotation.WebServlet;
 @WebServlet("/hs")
 public class HelloServlet extends GenericServlet {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	public void service(ServletRequest req, ServletResponse resp)
-			throws ServerException, IOException {
-		resp.setContentType("text/html");
-		PrintWriter out = resp.getWriter();
-		out.println("Hi RuchiDash");
-		System.out.println("Hello RuchiDash");
+    public void service(final ServletRequest req, final ServletResponse resp) throws ServerException, IOException {
+        resp.setContentType("text/html");
+        final PrintWriter out = resp.getWriter();
+        out.println("Hi RuchiDash");
+        System.out.println("Hello RuchiDash");
 
-	}
+    }
 
 }
