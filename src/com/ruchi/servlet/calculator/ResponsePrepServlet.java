@@ -1,4 +1,4 @@
-package com.ruchi.servlet.addsubproject;
+package com.ruchi.servlet.calculator;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/RespPrepServlet")
-public class RespPrepServlet extends HttpServlet {
+@WebServlet("/ResponsePrepServlet")
+public class ResponsePrepServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException,
@@ -26,8 +26,7 @@ public class RespPrepServlet extends HttpServlet {
         String button = request.getParameter("reqtype");
 
         // Reading result
-        int res = (Integer) request.getAttribute("result");
-
+        double res = (double)request.getAttribute("result");
         // Preparing response
         String msg;
         if (button.equals("Add")) {
@@ -38,16 +37,28 @@ public class RespPrepServlet extends HttpServlet {
         }
 
         // Include Addsub.html code in the response object
-        RequestDispatcher rd1 = request.getRequestDispatcher("/AddSub.html");
+        RequestDispatcher rd1 = request.getRequestDispatcher("/AdditionSubstraction.html");
         rd1.include(request, response);
 
-        out.print("<br>");
-        out.print("<hr>");
-        out.print("After " + msg + num1 + " and " + num2);
-        out.print("<br>");
-        out.print("result = " + res);
-        out.print("</hr>");
+        // Reading Response type
+        String resptype = (String) request.getAttribute("resptype");
+        if (resptype.contains("success")) {
+
+            out.print("<br>");
+            out.print("<hr>");
+            out.print("After " + msg + num1 + " and " + num2);
+            out.print("<br>");
+            out.print("result = " + res);
+            out.print("</hr>");
+
+        } else  {
+
+            String msg1 = (String) request.getAttribute("result");
+            out.print("<br>");
+            out.print("<hr>");
+            out.print("Error : " + msg1);
+            out.print("</hr>");
+        }
 
     }
-
 }

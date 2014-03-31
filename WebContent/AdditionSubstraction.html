@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Addition Subtraction Operation</title>
+
+
+<script type="text/javascript">
+	function clearInputText() {
+		document.frm.fno.value = '';
+		document.frm.sno.value = '';
+	}
+	function validateTextFields() {
+		if (document.frm.fno.value == '') {
+			alert("Firstno is required");
+			return false;
+		} else if (document.frm.sno.value == '') {
+			alert("Secondno is required");
+			return false;
+		}
+	}
+</script>
+</head>
+<body>
+	<form name="frm" action="./RequestProcessServlet"
+		onsubmit="return validateTextFields()">
+		<table border="1">
+			<tr>
+				<td>fno</td>
+				<td><input type="text" name="fno" /></td>
+			</tr>
+			<tr>
+				<td>sno</td>
+				<td><input type="text" name="sno" /></td>
+			</tr>
+		</table>
+		<table border="1">
+			<tr>
+				<td><input type="submit" name="requesttype" value="Add" /></td>
+				<td><input type="submit" name="requesttype" value="Sub" /></td>
+				<td><input type="submit" name="requesttype" value="Clear"
+					onclick="clearInputText()" /></td>
+
+			</tr>
+		</table>
+	</form>
+</body>
