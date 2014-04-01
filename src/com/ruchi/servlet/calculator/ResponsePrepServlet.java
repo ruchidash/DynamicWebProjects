@@ -14,19 +14,19 @@ import javax.servlet.http.HttpServletResponse;
 public class ResponsePrepServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException,
-            IOException {
+    protected void service(final HttpServletRequest request, final HttpServletResponse response)
+            throws ServletException, IOException {
 
         response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
+        final PrintWriter out = response.getWriter();
 
         // reading form parameters value
-        String num1 = request.getParameter("fno");
-        String num2 = request.getParameter("sno");
-        String button = request.getParameter("requesttype");
+        final String num1 = request.getParameter("fno");
+        final String num2 = request.getParameter("sno");
+        final String button = request.getParameter("requesttype");
 
         // Reading result
-        double res = (double)request.getAttribute("result");
+        final double res = (double) request.getAttribute("result");
         // Preparing response
         String msg;
         if (button.equals("Add")) {
@@ -37,11 +37,11 @@ public class ResponsePrepServlet extends HttpServlet {
         }
 
         // Include Addsub.html code in the response object
-        RequestDispatcher rd1 = request.getRequestDispatcher("/AdditionSubstraction.html");
+        final RequestDispatcher rd1 = request.getRequestDispatcher("/AdditionSubstraction.html");
         rd1.include(request, response);
 
         // Reading Response type
-        String resptype = (String) request.getAttribute("resptype");
+        final String resptype = (String) request.getAttribute("resptype");
         if (resptype.contains("success")) {
 
             out.print("<br>");
@@ -51,9 +51,9 @@ public class ResponsePrepServlet extends HttpServlet {
             out.print("result = " + res);
             out.print("</hr>");
 
-        } else  {
+        } else {
 
-            String msg1 = (String) request.getAttribute("result");
+            final String msg1 = (String) request.getAttribute("result");
             out.print("<br>");
             out.print("<hr>");
             out.print("Error : " + msg1);
