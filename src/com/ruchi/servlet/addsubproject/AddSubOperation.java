@@ -10,4 +10,12 @@ public class AddSubOperation {
         return a - b;
     }
 
+    public double sub(final double a, final double b) {
+        return a - b;
+    }
+
+    public double add(final double a, final double b) {
+        return a + b;
+    }
+
 }
