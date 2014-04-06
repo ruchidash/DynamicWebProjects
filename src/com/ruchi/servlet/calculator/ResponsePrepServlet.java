@@ -23,7 +23,7 @@ public class ResponsePrepServlet extends HttpServlet {
         // reading form parameters value
         String num1 = request.getParameter("fno");
         String num2 = request.getParameter("sno");
-        String button = request.getParameter("reqtype");
+        String button = request.getParameter("requesttype");
 
         // Reading result
         double res = (double)request.getAttribute("result");

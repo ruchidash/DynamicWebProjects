@@ -15,21 +15,20 @@ import com.ruchi.servlet.addsubproject.AddSubOperation;
 public class RequestProcessServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException,
-            IOException {
+    protected void service(final HttpServletRequest request, final HttpServletResponse response)
+            throws ServletException, IOException {
 
-     // reading form parameters value
-        String num1 = request.getParameter("fno");
-        String num2 = request.getParameter("sno");
-        String button = request.getParameter("reqtype");
+        // reading form parameters value
+        final String num1 = request.getParameter("fno");
+        final String num2 = request.getParameter("sno");
+        final String button = request.getParameter("requesttype");
 
-        AddSubOperation ao = new AddSubOperation();
+        final AddSubOperation ao = new AddSubOperation();
         double res;
-
         // Server side validation
         try {
-            double fno = Double.parseDouble(num1);
-            double sno = Double.parseDouble(num2);
+            final double fno = Double.parseDouble(num1);
+            final double sno = Double.parseDouble(num2);
 
             if (button.equals("Add")) {
                 res = ao.add(fno, sno);
@@ -40,13 +39,13 @@ public class RequestProcessServlet extends HttpServlet {
             request.setAttribute("resptype", "success");
             request.setAttribute("result", res);
 
-        } catch (NumberFormatException nfe) {
+        } catch (final NumberFormatException nfe) {
             request.setAttribute("resptype", "failed");
             request.setAttribute("result", "Only Enter Numbers");
 
         }
         // Forwarding request to RespPrepServlet for response generation
-        RequestDispatcher rd = request.getRequestDispatcher("/ResponsePrepServlet");
+        final RequestDispatcher rd = request.getRequestDispatcher("/ResponsePrepServlet");
         rd.forward(request, response);
 
     }
